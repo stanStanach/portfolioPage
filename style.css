@@ -23,6 +23,7 @@ a {
     color: inherit;
     min-width: 48px;
     min-height: 48px;
+    margin: 8px;
 }
 
 ul {
@@ -98,8 +99,6 @@ body {
 
 .main-wrapper {
     margin: 0 12px;
-    border: 1px solid red;
-    /* overflow: hidden; */
 }
 
 @media all and (min-width:750px) {
@@ -167,7 +166,6 @@ body {
 
 /* ----- landing ----- */
 .landing {
-    border: 1px solid blue;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -176,7 +174,6 @@ body {
 }
 
 .landing__image {
-    border: 1px solid green;
     position: relative;
     width: 300px;
     height: 400px;
@@ -184,7 +181,12 @@ body {
     background-position: center;
     background-size: cover;
 }
-
+@media all and (min-height: 600px) and (min-width: 750px){
+    .landing__image{
+        width: 500px;
+        height: 450px;
+    }
+}
 .landing h1 {
     position: absolute;
     top: 50%;
@@ -228,23 +230,32 @@ body {
     margin-left: 8px;
 }
 
-.landing__social_media img {
+.social_media_icons {
     width: 24px;
     height: 24px;
+}
+
+.social_media_link {
+    transition: all .2s ease-in;
+}
+
+.social_media_link:focus,
+.social_media_link:hover {
+    opacity: .5;
+    transform: scale(1.25);
+}
+
+.social_media_link:active {
+    transform: scale(0.75);
 }
 
 /* ------------------------------------------ */
 /* ---------- MAIN CONTENT STYLING ---------- */
 /* ------------------------------------------ */
-.main {
-    border: 1px solid yellow;
-}
-
 .main__section {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
-    border: 1px solid cornflowerblue;
     margin: 48px 0;
 }
 
@@ -445,4 +456,57 @@ body {
 .main__portfolio__content__link:hover::before,
 .main__portfolio__content__link:focus::before {
     opacity: 1;
+}
+
+/* Contacts Section */
+.main__contact__content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contact__name {
+    font-size: var(--body1);
+}
+
+.contact__name>span:first-of-type {
+    font-weight: bold;
+}
+
+.contact__name>span:last-of-type {
+    color: var(--text-color-secondary);
+    opacity: .5;
+}
+
+.main__contact__social {
+    display: flex;
+}
+
+.main__contact__direct {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    font-weight: bold;
+}
+
+.main__contact__direct span {
+    font-weight: normal;
+}
+
+.main__contact__direct a:hover span,
+.main__contact__direct a:focus span {
+    text-decoration: underline;
+}
+
+/* footer */
+footer {
+    font-size: var(--caption);
+    color: var(--text-color-secondary);
+    opacity: 0.75
+}
+
+.footer__copy {
+    text-align: center;
+    margin: .25em;
 }
