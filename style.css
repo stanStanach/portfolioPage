@@ -40,6 +40,25 @@ ul {
     background-color: #000;
 }
 
+/* keyframes */
+@keyframes hellLoose {
+    25% {
+        transform: rotateZ(45deg);
+    }
+
+    50% {
+        transform: rotateZ(-45deg);
+    }
+
+    75% {
+        transform: rotateZ(360deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
 /*
 ========================================
 ============ FONTS & COLORS ============
@@ -181,12 +200,28 @@ body {
     background-position: center;
     background-size: cover;
 }
-@media all and (min-height: 600px) and (min-width: 750px){
-    .landing__image{
+
+.mystery {
+    position: fixed;
+    font-size: 50px;
+    font-weight: bold;
+    right: 20px;
+    bottom: 20px;
+    animation: hellLoose 5s ease-in-out 5s infinite;
+    cursor: pointer;
+}
+
+.mystery:active {
+    animation-play-state: paused;
+}
+
+@media all and (min-height: 600px) and (min-width: 750px) {
+    .landing__image {
         width: 500px;
         height: 450px;
     }
 }
+
 .landing h1 {
     position: absolute;
     top: 50%;
@@ -203,7 +238,7 @@ body {
         5px 5px 0 var(--background-color-secondary);
 }
 
-@media all and (min-height: 600px) {
+@media all and (min-height: 800px) {
     .landing h1 {
         top: 0;
     }
