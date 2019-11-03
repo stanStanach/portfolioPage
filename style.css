@@ -11,12 +11,22 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
 
 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: inherit;
+    min-width: 48px;
+    min-height: 48px;
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* custom scrollbar */
@@ -28,3 +38,325 @@ a {
 ::-webkit-scrollbar-thumb {
     background-color: #000;
 }
+
+/*
+========================================
+============ FONTS & COLORS ============
+======================================== 
+*/
+:root {
+    /* colors */
+    --text-color-primary: black;
+    --text-color-secondary: #515151;
+    --background-color-primary: white;
+    --background-color-secondary: #fefefe;
+    /* font sizes */
+    font-size: 10px;
+    --overline: 1rem;
+    --caption: 1.2rem;
+    --button: 1.4rem;
+    --body2: 1.4rem;
+    --body1: 1.6rem;
+    --subtitle2: 1.4rem;
+    --subtitle1: 1.6rem;
+}
+
+@media all and (min-width: 900px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+h1 {
+    font-size: 7rem;
+}
+
+@media all and (min-width: 750px) {
+    h1 {
+        font-size: 9.6rem;
+    }
+}
+
+h2,
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+/*
+========================================
+=============== STYLING ================
+======================================== 
+*/
+body {
+    background-color: var(--background-color-secondary);
+    font-family: Roboto, sans-serif;
+}
+
+.main-wrapper {
+    margin: 0 12px;
+    border: 1px solid red;
+    /* overflow: hidden; */
+}
+
+@media all and (min-width:750px) {
+    .main-wrapper {
+        margin: 0 24px;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .main-wrapper {
+        margin: 0 auto;
+        width: calc(100%-96px);
+        max-width: 1200px;
+    }
+}
+
+/* ----- navbar ----- */
+.navbar {
+    height: 56px;
+    font-family: Roboto, sans-serif;
+    font-size: var(--body2);
+}
+
+.navbar__list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar__list a {
+    transition: all .2s ease-in;
+}
+
+.navbar__list a:hover,
+.navbar__list a:focus,
+.navbar__list a:active {
+    text-decoration: underline;
+}
+
+.navbar__list li:nth-child(1) a:hover,
+.navbar__list li:nth-child(1) a:focus,
+.navbar__list li:nth-child(1) a:active {
+    color: cyan;
+}
+
+.navbar__list li:nth-child(2) a:hover,
+.navbar__list li:nth-child(2) a:focus,
+.navbar__list li:nth-child(2) a:active {
+    color: magenta;
+}
+
+.navbar__list li:nth-child(3) a:hover,
+.navbar__list li:nth-child(3) a:focus,
+.navbar__list li:nth-child(3) a:active {
+    color: yellow;
+}
+
+.navbar__list li:nth-child(4) a:hover,
+.navbar__list li:nth-child(4) a:focus,
+.navbar__list li:nth-child(4) a:active {
+    transform: scale(1.1);
+}
+
+/* ----- landing ----- */
+.landing {
+    border: 1px solid blue;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 56px);
+}
+
+.landing__image {
+    border: 1px solid green;
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-image: url('images/IMG_20191102_112752.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.landing h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    line-height: 100%;
+    /* the shit below simulates an outside stroke */
+    text-shadow:
+        -5px -5px 0 var(--background-color-secondary),
+        5px -5px 0 var(--background-color-secondary),
+        -5px 5px 0 var(--background-color-secondary),
+        5px 5px 0 var(--background-color-secondary);
+}
+
+@media all and (min-height: 600px) {
+    .landing h1 {
+        top: 0;
+    }
+}
+
+.landing h2 {
+    font-weight: normal;
+}
+
+.landing__social_media {
+    display: flex;
+    flex-flow: row nowrap;
+
+}
+
+@media all and (min-height: 550px) {
+    .landing__social_media {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+.landing__social_media li:not(:first-child) {
+    margin-left: 8px;
+}
+
+.landing__social_media img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ------------------------------------------ */
+/* ---------- MAIN CONTENT STYLING ---------- */
+/* ------------------------------------------ */
+.main {
+    border: 1px solid yellow;
+}
+
+.main__section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    border: 1px solid cornflowerblue;
+    margin: 48px 0;
+}
+
+@media all and (min-width: 750px) {
+    .main__section {
+        margin: 96px 0;
+    }
+}
+
+.main__section:nth-child(2n) {
+    align-items: flex-end;
+}
+
+.main__section__title,
+.main__section__content {
+    background-color: var(--background-color-primary);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
+}
+
+.main__section__title {
+    max-width: 200px;
+    width: 50%;
+    padding: 12px 12px 1px;
+    font-family: 'Permanent Marker', cursive;
+    line-height: 100%;
+}
+
+.main__section__content {
+    width: 100%;
+}
+
+.main__section:nth-child(2n) .main__section__title {
+    text-align: right;
+}
+
+.main__section__content {
+    padding: 12px;
+    font-size: var(--body2);
+    line-height: 155%;
+}
+
+/* About Me Section */
+.main__about_me__text {
+    text-align: justify;
+}
+
+.main__about_me__signature {
+    margin-top: 12px;
+    color: var(--text-color-secondary);
+    font-weight: lighter;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Skills Section */
+.main__skills__content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+}
+
+.main__skills__content>section {
+    flex: 1;
+}
+
+.main__skills__section:nth-child(2) {
+    border: solid var(--text-color-secondary);
+    border-width: 0px 1px;
+}
+
+.main__skills__section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: var(--caption);
+}
+
+.main__skills__section__description {
+    text-align: center;
+    color: var(--text-color-secondary);
+}
+
+.main__skills__section__description img {
+    width: 48px;
+}
+
+.main__skills__technology img {
+    width: 24px;
+}
+
+.main__skills__technology figure {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 8px;
+    color: var(--text-color-primary);
+}
+
+.main__skills__technology figcaption {
+    margin-left: 8px;
+}
+
+@media all and (min-width: 900px) {
+    .main__skills__section__description img {
+        width: 64px;
+    }
+
+    .main__skills__technology img {
+        width: 36px;
+    }
+}
+
+.main__skills__section__description {}
