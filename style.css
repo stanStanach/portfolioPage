@@ -439,9 +439,28 @@ body {
 
 .main__portfolio__content__link {
     position: relative;
-    max-width: 400px;
+    background-size: cover;
+    width: 500px;
+    height: 200px;
     margin: 8px;
     transition: all .2s ease-in;
+    overflow: hidden;
+}
+
+.main__portfolio__content__link:nth-of-type(1) {
+    background-image: url("images/website1.jpg");
+}
+
+.main__portfolio__content__link:nth-of-type(2) {
+    background-image: url("images/website2.jpg");
+}
+
+.main__portfolio__content__link:nth-of-type(3) {
+    background-image: url("images/website3.jpg");
+}
+
+.main__portfolio__content__link:nth-of-type(4) {
+    background-image: url("images/website4.jpg");
 }
 
 .main__portfolio__content__link:hover,
@@ -457,7 +476,6 @@ body {
 
 .main__portfolio__content__link::before {
 
-    content: 'Siema';
     position: absolute;
     top: 50%;
     left: 50%;
